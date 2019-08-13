@@ -1,0 +1,37 @@
+<ng-container >
+    <div class="user-main search-main">
+        <div @topToDown class="left search-left">
+            <input [(ngModel)]="query" type="text" name="searchUsername" placeholder="Search for a user">
+            <div (click)="search()" class="icon"><i class="fas fa-search"></i></div>
+        </div>
+        <div class="right search-right">
+                <div class="followers-container">
+                <app-spinner
+                    *ngIf="isLoading"
+                ></app-spinner>
+                <ng-container *ngIf="users" >
+                    <app-follower
+                        *ngFor="let user of users"
+                        [follower]="user"
+                        @topToDown
+                    ></app-follower>
+                </ng-container>
+                <ng-container *ngIf="!isLoading">
+                    <ng-container *ngIf="users.length < 1" >
+                        <div class="empty">No users available</div>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="users.length < totalCount" >
+                    <div (click)="loadMore()" class="more-followers">
+                        <span
+                            *ngIf="!isLoadingMore"
+                        >More</span>
+                        <app-spinner
+                            *ngIf="isLoadingMore"
+                        ></app-spinner>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-container>

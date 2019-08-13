@@ -1,1 +1,719 @@
-/* You can add global styles to this file, and also import other style files */
+$color-primary: #464646;
+$color-secondary: #FF977B;
+$color-grey: #BDBDBD;
+$color-grey-1: #909090;
+$color-head: rgba(209, 236, 255, 0.2);
+$color-head-1: rgba(96, 151, 190, 0.425);
+$color-head-2: rgb(60, 100, 128);
+
+:root {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Asap', sans-serif;
+    background: $color-head;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: $color-head-1;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: $color-head-2;
+}
+
+.font-arvo {
+    font-family: 'Arvo', serif;
+}
+
+.root-main {
+    width: 100%;
+    height: 100vh;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.access-token {
+    height: calc(100% - 3.5rem);
+    padding-top: 3.5rem;
+}
+
+.navbar {
+    width: 100%;
+    height: 3.5rem;
+    background: $color-primary;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: fixed;
+    z-index: 9;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.login-main {
+    width: 100%;
+    height: 100%;
+    background: url('./assets/images/christopher-rusev-e6o5cTvOYoI-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.login-main::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.login-main .main-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.login-main .wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-main .title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.login-main .sign-in-box {
+    background: white;
+    width: calc(25% - 2px);
+    text-align: center;
+    padding: 30px 0;
+    margin: 20px 0;
+    border: 1px solid $color-grey-1;
+    border-radius: 5px;
+    box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.4);
+}
+
+.login-main .sign-in-box .icon {
+    width: 100%;
+    text-align: center;
+    color: $color-primary;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.login-main .sign-in-box button {
+    background: $color-primary;
+    color: white;
+    padding: 7px 8px;
+    margin-top: 10px;
+    border-radius: 3px;
+    transition: all ease-in-out 0.1s;
+}
+
+.login-main .sign-in-box button:hover {
+    color: $color-secondary;
+    box-shadow: 1px 4px 10px -5px $color-secondary;
+}
+
+.navbar .user-img {
+    width: calc(7% - 30px);
+    height: calc(100% - 10px);
+    padding: 5px 0px;
+    padding-left: 20px;
+    padding-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .user-img img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 3px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.navbar .user-name {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.user-main {
+    width: calc(100% - 80px);
+    height: calc(100% - 110px);
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    padding-top: 70px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.user-main .left {
+    width: 30%;
+    background: white;
+    box-shadow: 3px 10px 10px -5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 10px;
+    border-bottom: 5px solid $color-head-1;
+}
+
+.user-main .right {
+    background: white;
+    width: calc(70% - 80px);
+    margin-left: auto;
+    padding: 10px 15px;
+    box-shadow: 3px 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.user-main .left .name,
+.user-main .left .bio {
+    width: calc(100% - 10px);
+    text-align: center;
+    padding: 3px 5px;
+    word-wrap: break-word;
+}
+
+.user-main .left .name {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color-head-2;
+}
+
+.user-main .left .bio {
+    color: $color-grey-1;
+}
+
+.user-main .user-img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+}
+
+.user-main .user-img img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    box-shadow: 3px 10px 10px -5px rgba(0, 0, 0, 0.2);
+    border: 3px solid $color-head-1;
+}
+
+.user-img {
+    // display: none;
+}
+
+.user-main .left .counts-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid $color-grey;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.user-main .left .counts-container .count {
+    width: 33.33%;
+    text-align: center;
+}
+
+.user-main .left .counts-container .count .key {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: $color-grey-1;
+}
+.user-main .left .counts-container .count .value {
+    font-weight: bold;
+    color: $color-head-2;
+}
+
+.user-main .left .gist-count {
+    position: absolute;
+    background: $color-head-2;
+    color: white;
+    left: 0;
+    top: 0;
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 0 5px;
+    box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.2);
+}
+.user-main .left .gist-count .key {
+}
+
+.user-main .right .title {
+    background: $color-head-1;
+    color: $color-head-2;
+    padding: 5px 7px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+}
+.user-main .right .title:first-child {
+    margin-top: 0;
+}
+
+.user-main .right .public-repos-container {
+    width: calc(100% - 40px);
+    display: flex;
+    overflow-x: auto;
+    padding: 15px 20px;
+    scroll-snap-type: x mandatory;
+}
+
+.user-main .right .public-repos-container::-webkit-scrollbar {
+    height: 5px;
+}
+.user-main .right .public-repos-container::-webkit-scrollbar-thumb {
+    background: $color-head-1;
+}
+.user-main .right .public-repos-container::-webkit-scrollbar-thumb:hover {
+    background: $color-head-2;
+}
+
+app-repo,
+app-gist {
+    width: 300px;
+    min-width: 300px;
+    margin-right: 15px;
+}
+
+.user-main .right .public-repos-container .repo {
+    width: 100%;
+    margin-right: 15px;
+    scroll-snap-align: start;
+    box-shadow: 3px 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.user-main .right .public-repos-container .repo .repo-title,
+.user-main .right .public-repos-container .repo .bottom {
+    background: $color-head-2;
+    color: white;
+    padding: 5px 7px;
+}
+
+.user-main .right .public-repos-container .repo .repo-title a:hover {
+    color: $color-secondary;
+}
+
+.user-main .right .public-repos-container .body {
+    padding: 5px 7px;
+    width: calc(100% - 16px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-left: 1px solid $color-head-1;
+    border-right: 1px solid $color-head-1;
+}
+
+.user-main .right .public-repos-container .body .counts {
+    width: calc(50% - 5px);
+    background: #eee;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.user-main .right .public-repos-container .body .counts .key {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: $color-grey-1;
+}
+
+.user-main .right .public-repos-container .repo .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    justify-content: space-between;
+}
+.user-main .right .public-repos-container .repo .bottom .url,
+.user-main .right .public-repos-container .repo .bottom .clone-btn {
+    background: white;
+    color: $color-head-2;
+}
+.user-main .right .public-repos-container .repo .bottom .url {
+    width: calc(100% - 74px);
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 5px 7px;
+}
+.user-main .right .public-repos-container .repo .bottom .url::-webkit-scrollbar {
+    height: 3px;
+}
+.user-main .right .public-repos-container .repo .bottom .url::-webkit-scrollbar-thumb {
+    background: $color-head-1;
+}
+.user-main .right .public-repos-container .repo .bottom .url::-webkit-scrollbar-thumb:hover {
+    background: $color-head-2;
+}
+.user-main .right .public-repos-container .repo .bottom .clone-btn {
+    width: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 0;
+    font-weight: bold;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.empty {
+    color: $color-grey-1;
+    padding: 15px 0;
+    font-size: 0.9rem;
+}
+
+.user-main .right .followers-container {
+    width: calc(100% - 20px);
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    padding: 15px 20px;
+    scroll-snap-type: y mandatory;
+    padding-right: 0;
+}
+.user-main .right .followers-container::-webkit-scrollbar {
+    width: 5px;
+}
+.user-main .right .followers-container::-webkit-scrollbar-thumb {
+    background: $color-head-1;
+}
+.user-main .right .followers-container::-webkit-scrollbar-thumb:hover {
+    background: $color-head-2;
+}
+
+app-follower {
+    width: calc(25% - 10px);
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+.user-main .right .followers-container .follower {
+    width: 100%;
+    background: $color-head;
+    box-shadow: 3px 10px 10px -5px rgba(0, 0, 0, 0.2);
+    scroll-snap-align: center;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+}
+app-follower:nth-child(4n+4) {
+    margin-right: 0;
+}
+
+.user-main .right .followers-container .follower:hover {
+    transform: translateY(-5px);
+}
+
+.user-main .right .followers-container .follower .img {
+    width: calc(100% - 40px);
+    padding: 20px;
+}
+.user-main .right .followers-container .follower .img img {
+    display: block;
+    max-width: 100%;
+    min-height: 100%;
+    width: 100%;
+}
+
+.user-main .right .followers-container .follower .name {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.7rem;
+    padding-bottom: 10px;
+    color: $color-head-2;
+    word-wrap: break-word;
+}
+
+app-spinner {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.more-followers {
+    background: $color-head-2;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: calc(25% - 10px);
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 10px 10px -5px rgba(0, 0, 0, 0.2);
+    min-height: 100px;
+    cursor: pointer;
+}
+
+.spinner {
+    margin: 0px auto 0;
+    width: 70px;
+    text-align: center;
+    
+  }
+  
+  .spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: $color-head-2;
+  
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+  
+  .spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  
+  .spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  
+  @-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+  }
+  
+  @keyframes sk-bouncedelay {
+    0%, 80%, 100% { 
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 40% { 
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+  }
+
+.more-followers .spinner > div {
+    background: white;
+}
+
+.navbar .btns {
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.navbar .logout-btn,
+.navbar .search {
+    cursor: pointer;
+    height: 100%;
+}
+.navbar .logout-btn:hover,
+.navbar .search:hover {
+    text-decoration: underline;
+    color: $color-secondary;
+}
+
+.search {
+}
+
+.search-left {
+    padding: 20px 10px !important;
+    width: calc(30% - 20px) !important;
+}
+
+.search-left .icon {
+    padding: 5px 7px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: $color-head-2;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.search-left input {
+    border: none;
+    border-bottom: 2px solid $color-grey-1;
+    padding: 3px 7px;
+    width: calc(100% - 59px);
+    outline: none;
+}
+.search-left input:focus {
+    border-bottom: 2px solid $color-head-2;
+}
+
+.search-right {
+    min-height: 100% !important;
+}
+
+.search-main {
+    width: calc(100% - 80px) !important;
+    height: calc(100% - 45px) !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    padding-bottom: 25px !important;
+    padding-top: 15px !important;
+}
+
+// app-not-found {
+//     width: 100%;
+//     height: 100%;
+// }
+
+.not-found-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-found-main span {
+    margin: 0 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 480px) {
+
+    :root {
+        font-size: 14px;
+    }
+
+    .navbar .user-img {
+        width: calc(15% - 10px);
+        height: calc(100% - 10px);
+        padding: 5px 5px;
+    }
+
+    .user-main .left {
+        position: relative;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .user-main .right {
+        width: calc(100% - 10px);
+        margin: 0;
+        padding: 10px 5px;
+    }
+
+    app-repo,
+    app-gist {
+        width: 90% !important;
+        min-width: 90% !important;
+    }
+
+    .user-main .right .public-repos-container .repo {
+        width: 100% !important;
+    }
+
+    .user-main {
+        width: calc(100% - 20px);
+        height: calc(100% - 90px);
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 20px;
+        padding-top: 70px;
+    }
+
+    .search-main {
+        width: calc(100% - 20px) !important;
+        height: calc(100% - 65px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        padding-bottom: 35px !important;
+        padding-top: 15px !important;
+    }
+
+    .search-left {
+        position: relative;
+        width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    .login-main .sign-in-box {
+        width: calc(70% - 2px);
+    }
+
+    .user-main .right .followers-container .follower .img {
+        width: calc(100% - 10px);
+        padding: 5px;
+    }
+
+    .user-main .right .followers-container {
+        width: calc(100% - 10px);
+        padding: 15px 10px;
+        padding-right: 0 !important;
+    }
+
+    app-follower {
+        width: calc(33.33% - 10px);
+        margin-bottom: 15px;
+        margin-right: 10px;
+    }
+
+    app-follower:nth-child(3n+3) {
+        margin-right: 0 !important;
+    }
+
+    app-follower:nth-child(4n+4) {
+        margin-right: 10px !important;
+    }
+
+}

@@ -1,0 +1,23 @@
+<div
+    class="repo"
+>
+    <div class="repo-title">
+        <a href="{{gist.html_url}}" target="_blank">{{gist.id}}</a>
+    </div>
+    <div class="body">
+        <div class="star-counts counts">
+            <div class="value">{{gist.files | objectLength}}</div>
+            <div class="key">Files</div>
+        </div>
+        <div class="forks-counts counts">
+            <div class="value">{{gist.comments}}</div>
+            <div class="key">Comments</div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="url">
+            {{gist.id}}
+        </div>
+        <div class="clone-btn">ID</div>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+<app-spinner
+    *ngIf="!user"
+></app-spinner>
+<ng-container *ngIf="user" >
+    <div class="user-main">
+        <div @topToDown class="left">
+            <div class="gist-count">
+                <div class="value">{{user.public_gists}}</div>
+                <div class="key">Gists</div>
+            </div>
+            <div class="user-img">
+                <img src="{{user.avatar_url}}" alt="User Image">
+            </div>
+            <div class="name">
+                {{user.name}}
+            </div>
+            <div class="bio">
+                {{user.bio ? user.bio : 'No bio available'}}
+            </div>
+            <div class="counts-container">
+                <div class="count">
+                    <div class="value">{{user.followers}}</div>
+                    <div class="key">Followers</div>
+                </div>
+                <div class="count">
+                    <div class="value">{{user.following}}</div>
+                    <div class="key">Following</div>
+                </div>
+                <div class="count">
+                    <div class="value">{{user.public_repos}}</div>
+                    <div class="key">Public Repos</div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <!-- public repos -->
+            <div class="title">Public Repos - {{publicRepos ? publicRepos.length : ''}}</div>
+            <div class="public-repos-container">
+                <app-spinner
+                    *ngIf="!publicRepos"
+                ></app-spinner>
+                <ng-container *ngIf="publicRepos" >
+                    <app-repo
+                        *ngFor="let repo of publicRepos"
+                        [repo]="repo"
+                        @topToDown
+                    ></app-repo>
+                </ng-container>
+                <ng-container  *ngIf="publicRepos">
+                    <ng-container *ngIf="publicRepos.length < 1" >
+                        <div class="empty">No repositories available</div>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <!-- public repos end -->
+
+            <!-- public gists -->
+            <div class="title">Public Gists - {{publicGists ? publicGists.length : ''}}</div>
+            <div class="public-repos-container">
+                <app-spinner
+                    *ngIf="!publicGists"
+                ></app-spinner>
+                <ng-container *ngIf="publicGists" >
+                    <app-gist
+                        *ngFor="let gist of publicGists"
+                        [gist]="gist"
+                        @topToDown
+                    ></app-gist>
+                </ng-container>
+                <ng-container *ngIf="publicGists">
+                    <ng-container *ngIf="publicGists.length < 1" >
+                        <div class="empty">No gists available</div>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <!-- public gists end -->
+
+            <!-- followers -->
+            <div class="title">Followers - {{followers ? followers.length : ''}}</div>
+            <div class="followers-container">
+                <app-spinner
+                    *ngIf="!followers"
+                ></app-spinner>
+                <ng-container *ngIf="followers" >
+                    <app-follower
+                        *ngFor="let follower of followers"
+                        [follower]="follower"
+                        @topToDown
+                    ></app-follower>
+                </ng-container>
+                <ng-container *ngIf="followers">
+                    <ng-container *ngIf="followers.length < 1" >
+                        <div class="empty">No followers available</div>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="followers && user" >
+                    <div (click)="loadMoreFollowers()" *ngIf="followers.length < user.followers" class="more-followers">
+                        <span
+                            *ngIf="!loadingMoreFollowers"
+                        >More</span>
+                        <app-spinner
+                            *ngIf="loadingMoreFollowers"
+                        ></app-spinner>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-container>

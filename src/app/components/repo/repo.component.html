@@ -1,0 +1,23 @@
+<div
+    class="repo"
+>
+    <div class="repo-title">
+        <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+    </div>
+    <div class="body">
+        <div class="star-counts counts">
+            <div class="value">{{repo.stargazers_count}}</div>
+            <div class="key">Stars</div>
+        </div>
+        <div class="forks-counts counts">
+            <div class="value">{{repo.forks_count}}</div>
+            <div class="key">Forks</div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="url">
+            {{repo.clone_url}}
+        </div>
+        <div class="clone-btn">Clone</div>
+    </div>
+</div>
